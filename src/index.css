@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+body {
+  @apply bg-blackout text-text-primary antialiased;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Neon glow utilities */
+.glow-green {
+  box-shadow: 0 0 20px theme('colors.neon-green-dim'),
+              0 0 40px theme('colors.neon-green-dim');
+}
+
+.glow-purple {
+  box-shadow: 0 0 20px theme('colors.neon-purple-dim'),
+              0 0 40px theme('colors.neon-purple-dim');
+}
+
+.glow-red {
+  box-shadow: 0 0 20px theme('colors.neon-red-dim'),
+              0 0 40px theme('colors.neon-red-dim');
+}
+
+.text-glow-green {
+  text-shadow: 0 0 10px theme('colors.neon-green'),
+               0 0 20px theme('colors.neon-green-dim');
+}
+
+.text-glow-purple {
+  text-shadow: 0 0 10px theme('colors.neon-purple'),
+               0 0 20px theme('colors.neon-purple-dim');
+}
+
+.text-glow-red {
+  text-shadow: 0 0 10px theme('colors.neon-red'),
+               0 0 20px theme('colors.neon-red-dim');
+}
+
+/* 3D Card Transform Utilities */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Mobile Safe Area */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 1rem);
+}
+
+/* Card Back Pattern */
+.card-back-pattern {
+  background:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 5px,
+      theme('colors.neon-purple-dim') 5px,
+      theme('colors.neon-purple-dim') 6px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 5px,
+      theme('colors.neon-green-dim') 5px,
+      theme('colors.neon-green-dim') 6px
+    );
+}
+
+/* Scanline Animation */
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+.animate-scanline {
+  animation: scanline 2s linear infinite;
+}
