@@ -14,31 +14,31 @@ function RuleCard({ suit, index }: RuleCardProps) {
   const rule = SUIT_RULES[suit]
   const symbol = SUIT_SYMBOLS[suit]
 
-  // Color mapping by suit
+  // Harmonized gold/ivory color mapping
   const colors = {
     clubs: {
-      text: 'text-neon-purple',
-      bg: 'bg-neon-purple/10',
-      border: 'border-neon-purple/30',
-      glow: 'text-glow-purple',
+      text: 'text-gold',
+      bg: 'bg-gold/10',
+      border: 'border-gold/30',
+      glow: 'text-glow-gold',
     },
     diamonds: {
-      text: 'text-neon-red',
-      bg: 'bg-neon-red/10',
-      border: 'border-neon-red/30',
-      glow: 'text-glow-red',
+      text: 'text-gold-light',
+      bg: 'bg-gold-light/10',
+      border: 'border-gold-light/30',
+      glow: '',
     },
     hearts: {
-      text: 'text-neon-red',
-      bg: 'bg-neon-red/10',
-      border: 'border-neon-red/30',
-      glow: 'text-glow-red',
+      text: 'text-gold',
+      bg: 'bg-gold/10',
+      border: 'border-gold/30',
+      glow: 'text-glow-gold',
     },
     spades: {
-      text: 'text-neon-green',
-      bg: 'bg-neon-green/10',
-      border: 'border-neon-green/30',
-      glow: 'text-glow-green',
+      text: 'text-ivory',
+      bg: 'bg-ivory/10',
+      border: 'border-ivory/20',
+      glow: '',
     },
   }[suit]
 
@@ -49,7 +49,7 @@ function RuleCard({ suit, index }: RuleCardProps) {
       transition={{ delay: 0.1 + index * 0.1, type: 'spring', damping: 20 }}
       className={cn(
         'rounded-xl p-5',
-        'bg-surface border',
+        'bg-obsidian-light border',
         colors.border,
         'relative overflow-hidden'
       )}
@@ -80,7 +80,7 @@ function RuleCard({ suit, index }: RuleCardProps) {
               {symbol}
             </span>
           </div>
-          <h3 className={cn('text-xl font-bold', colors.text)}>
+          <h3 className={cn('font-playfair text-xl font-bold', colors.text)}>
             {rule.title}
           </h3>
         </div>
@@ -103,20 +103,21 @@ export function RulesScreen() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, x: 50 }}
+      transition={{ type: 'spring', damping: 25, stiffness: 200 }}
       className="min-h-screen bg-blackout"
     >
       {/* Header with back button */}
-      <header className="sticky top-0 z-30 bg-blackout/80 backdrop-blur-lg border-b border-text-muted/10">
+      <header className="sticky top-0 z-30 bg-blackout/90 backdrop-blur-lg border-b border-gold/10">
         <div className="max-w-lg mx-auto px-4 py-4 flex items-center">
           <Button
             variant="ghost"
-            color="green"
+            color="gold"
             onClick={goToHub}
             className="mr-3"
           >
             <ArrowLeft className="w-5 h-5" />
           </Button>
-          <h1 className="text-xl font-bold text-text-primary">
+          <h1 className="font-playfair text-xl font-bold text-ivory">
             Règles du Borderland
           </h1>
         </div>
@@ -134,7 +135,7 @@ export function RulesScreen() {
           <p className="text-text-muted">
             Chaque couleur de carte a sa propre règle.
             <br />
-            <span className="text-neon-green">Les As valent un SHOT.</span>
+            <span className="text-gold font-medium">Les As valent un SHOT.</span>
           </p>
         </motion.div>
 
@@ -150,10 +151,14 @@ export function RulesScreen() {
           transition={{ delay: 0.6 }}
           className={cn(
             'rounded-xl p-5 mt-6',
-            'bg-surface-elevated border border-gold/30'
+            'bg-surface-elevated border border-gold/40',
+            'relative overflow-hidden'
           )}
         >
-          <h3 className="text-lg font-bold text-gold mb-2">
+          {/* Decorative corner */}
+          <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-gold/30 rounded-tr-xl pointer-events-none" />
+
+          <h3 className="font-playfair text-lg font-bold text-gold mb-2">
             ⚔️ Le Contest
           </h3>
           <p className="text-text-secondary text-sm leading-relaxed">

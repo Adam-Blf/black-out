@@ -25,6 +25,11 @@ const colorStyles: Record<NeonColor, Record<string, string>> = {
     outline: 'border-neon-red text-neon-red hover:bg-neon-red/10',
     ghost: 'text-neon-red hover:bg-neon-red/10',
   },
+  gold: {
+    solid: 'bg-gold text-blackout font-bold hover:bg-gold-light',
+    outline: 'border-gold/60 text-gold hover:bg-gold/10',
+    ghost: 'text-gold hover:bg-gold/10',
+  },
 }
 
 const sizeStyles = {
