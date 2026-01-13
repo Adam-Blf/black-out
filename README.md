@@ -1,11 +1,11 @@
-# BlackOut
+# BlackOut - Casino de Luxe
 
 ![Status](https://img.shields.io/badge/status-in%20development-yellow)
 ![Version](https://img.shields.io/badge/version-0.0.1-blue)
 ![React](https://img.shields.io/badge/React-19-61DAFB)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178C6)
 
-Collection de jeux à boire avec une UI premium et des animations fluides.
+Collection de jeux à boire avec une UI **Casino de Luxe / High Roller** et des animations premium.
 
 ## Le Borderland
 
@@ -33,14 +33,19 @@ Conteste la décision et double la mise ! Les niveaux d'escalade multiplient les
 
 ## Features
 
-- [x] Écran de check-in des joueurs (WelcomeScreen)
-- [x] Hub de jeux avec navigation fluide
+- [x] Écran de check-in des joueurs (WelcomeScreen) - Style VIP List
+- [x] Hub de jeux avec carte style Machine à Sous Vintage
 - [x] Jeu de cartes "Le Borderland" complet
 - [x] Système de contest avec escalade
-- [x] Animations Framer Motion premium
+- [x] Animations Framer Motion premium avec effets shuffle
 - [x] Persistence des joueurs (localStorage)
-- [x] Dark mode par défaut (thème Obsidian & Gold)
+- [x] **Thème Casino de Luxe** (vert feutre, or, rouge poker)
+- [x] Boutons style Jetons de Poker 3D
+- [x] Typographie Art Déco (Cinzel + Montserrat)
 - [x] Responsive mobile-first
+- [x] **PWA Installable** (iOS & Android)
+- [x] **Internationalisation (i18n)** - FR, EN, ES, DE, IT, PT
+- [x] Mode hors-ligne avec Service Worker
 
 ## Installation
 
@@ -70,6 +75,34 @@ npm run build
 | **Framer Motion 12** | Animations |
 | **Zustand 5** | State Management |
 | **Lucide React** | Iconographie |
+| **Google Fonts** | Cinzel, Playfair Display, Montserrat |
+| **i18next** | Internationalisation |
+| **vite-plugin-pwa** | PWA & Service Worker |
+
+## Design System - Casino de Luxe
+
+### Palette de Couleurs
+
+| Couleur | Hex | Usage |
+|---------|-----|-------|
+| **Casino Green** | `#0a3622` | Fond principal (feutre de table) |
+| **Gold Leaf** | `#d4af37` | Accents, bordures, textes importants |
+| **Poker Red** | `#b91c1c` | Boutons danger/contestation |
+| **Velvet Black** | `#1a1a1a` | Cartes, surfaces élevées |
+| **Ivory** | `#f5f5f0` | Texte principal |
+
+### Typographie
+
+- **Titres** : Cinzel (Art Déco élégant)
+- **Corps** : Montserrat (Sans-serif moderne)
+- **Accents** : Playfair Display (Serif classique)
+
+### Composants Casino
+
+- **Chip Button** : Boutons 3D style jetons de poker avec ombres relief
+- **VIP Input** : Champs de saisie avec soulignement doré
+- **Casino Card** : Cartes avec bordures dorées et effets de lumière
+- **Slot Card** : Style affiche de machine à sous vintage
 
 ## Architecture
 
@@ -92,7 +125,7 @@ src/
 ## Flow de Navigation
 
 ```
-WelcomeScreen (Check-in joueurs)
+WelcomeScreen (VIP Check-in)
        │
        ▼
    HubScreen ◄──────────┐
@@ -100,7 +133,7 @@ WelcomeScreen (Check-in joueurs)
        ├─► RulesScreen ─┘
        │
        ▼
-   GameBoard
+   GameBoard (Table de Casino)
        │
        └─► (Quitter) ───► HubScreen
 ```
@@ -114,7 +147,38 @@ WelcomeScreen (Check-in joueurs)
 | `npm run preview` | Preview du build |
 | `npm run lint` | Linter ESLint |
 
+## Déploiement
+
+Consulte le guide complet dans [DEPLOY.md](DEPLOY.md) pour mettre en ligne le site.
+
+**Options disponibles :**
+
+- **Vercel** (Recommandé) - CI/CD automatique, CDN global, gratuit
+- **Render** - Alternative gratuite avec `render.yaml` pré-configuré
+- **OVH FTP** - Hébergement mutualisé classique avec `.htaccess`
+
+**Configuration domaine OVH :** Ajoute un CNAME `blackout` → `cname.vercel-dns.com` dans ta Zone DNS.
+
 ## Changelog
+
+### 2025-01-13 - PWA & i18n Update
+- **feat**: PWA installable sur iOS et Android (mode standalone)
+- **feat**: Internationalisation avec i18next (FR, EN, ES, DE, IT, PT)
+- **feat**: Detection automatique de la langue du navigateur
+- **feat**: Service Worker pour mode hors-ligne
+- **feat**: Manifest PWA avec theme Obsidian (#050505)
+- **config**: Balises iOS (apple-touch-icon, apple-mobile-web-app)
+
+
+### 2025-01-13 - Casino de Luxe Update
+- **style**: Refonte complète UI thème "Casino de Luxe / High Roller"
+- **style**: Nouvelle palette (Casino Green, Gold Leaf, Poker Red)
+- **style**: Typographie Art Déco (Cinzel, Montserrat)
+- **feat**: Boutons style Jetons de Poker 3D avec effets relief
+- **feat**: Inputs VIP avec soulignement doré
+- **feat**: Cartes style Machine à Sous Vintage
+- **feat**: Animations shuffle entre écrans
+- **feat**: Effets glow dorés et shimmer
 
 ### 2025-01-13
 - **feat**: Ajout WelcomeScreen pour check-in des joueurs avant le Hub
