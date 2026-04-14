@@ -85,5 +85,22 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
+    target: 'es2020',
+    cssCodeSplit: true,
+    reportCompressedSize: false,
+    chunkSizeWarningLimit: 600,
+    rollupOptions: {
+      output: {
+        manualChunks: (id) => {
+          if (id.includes('node_modules')) {
+            if (id.includes('framer-motion')) return 'vendor-motion'
+            if (id.includes('react-i18next') || id.includes('i18next')) return 'vendor-i18n'
+            if (id.includes('lucide-react')) return 'vendor-icons'
+            if (id.includes('zustand')) return 'vendor-state'
+            return 'vendor'
+          }
+        },
+      },
+    },
   },
 })

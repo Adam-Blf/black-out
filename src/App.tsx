@@ -1,8 +1,15 @@
-import { useEffect } from 'react'
+import { useEffect, lazy, Suspense } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { RotateCcw } from 'lucide-react'
-import { GameBoard } from '@/components/game'
-import { HubScreen, RulesScreen, WelcomeScreen } from '@/components/screens'
+const GameBoard = lazy(() => import('@/components/game').then(m => ({ default: m.GameBoard })))
+const SessionRecap = lazy(() => import('@/components/game').then(m => ({ default: m.SessionRecap })))
+const HubScreen = lazy(() => import('@/components/screens').then(m => ({ default: m.HubScreen })))
+const RulesScreen = lazy(() => import('@/components/screens').then(m => ({ default: m.RulesScreen })))
+const WelcomeScreen = lazy(() => import('@/components/screens').then(m => ({ default: m.WelcomeScreen })))
+
+const Loader = () => (
+  <div className="min-h-screen flex items-center justify-center text-white/40 font-mono text-sm">chargement...</div>
+)
 import { useGameStore, useAppStore } from '@/stores'
 import { cn } from '@/utils'
 
@@ -86,6 +93,13 @@ function App() {
         )
 
       case 'game':
+        if (gamePhase === 'ended') {
+          return (
+            <motion.div key="recap" variants={screenVariants} initial="initial" animate="animate" exit="exit" transition={{ type: 'spring', damping: 25 }}>
+              <SessionRecap players={useGameStore.getState().players} onReplay={handleReset} onQuit={handleQuitToHub} />
+            </motion.div>
+          )
+        }
         // Game phase: 'setup' should no longer happen since players are pre-configured
         // But we handle it just in case by redirecting to welcome
         if (gamePhase === 'setup') {
@@ -123,7 +137,9 @@ function App() {
   return (
     <div className="relative">
       <AnimatePresence mode="wait">
+        <Suspense fallback={<Loader />}>
         {renderScreen()}
+      </Suspense>
       </AnimatePresence>
     </div>
   )
