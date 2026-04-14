@@ -66,6 +66,16 @@ export interface Player {
   name: string
   /** Whether player is still in the game */
   active: boolean
+  /** Total gorgées drunk in current session */
+  drinksGorgees?: number
+  /** Total shots drunk */
+  drinksShots?: number
+  /** Number of contests initiated */
+  contestsWon?: number
+  /** Number of contests lost */
+  contestsLost?: number
+  /** Cards drawn */
+  cardsDrawn?: number
 }
 
 /** Contest/Duel escalation levels */
@@ -144,4 +154,25 @@ export interface PenaltyResult {
   amount: number
   unit: PenaltyUnit
   displayText: string
+}
+
+// ============================================
+// PROMPT GAMES
+// ============================================
+
+export type PromptGameType =
+  | 'neverHaveIEver'
+  | 'truthOrDare'
+  | 'wouldYouRather'
+  | 'mostLikelyTo'
+  | 'itsA10But'
+  | 'sevenSeconds'
+
+export interface PromptGameConfig {
+  id: PromptGameType
+  title: string
+  subtitle: string
+  description: string
+  /** Lucide icon name */
+  icon: string
 }

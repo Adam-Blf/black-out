@@ -6,3 +6,4 @@ export type { ContestModalProps } from './ContestModal'
 
 export { GameBoard } from './GameBoard'
 export type { GameBoardProps } from './GameBoard'
+export { SessionRecap } from './SessionRecap'

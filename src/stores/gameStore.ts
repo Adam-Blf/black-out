@@ -101,6 +101,11 @@ export function createPlayer(name: string): Player {
     id: `player-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
     name: name.trim(),
     active: true,
+    drinksGorgees: 0,
+    drinksShots: 0,
+    contestsWon: 0,
+    contestsLost: 0,
+    cardsDrawn: 0,
   }
 }
 
