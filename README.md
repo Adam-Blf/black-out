@@ -1,9 +1,11 @@
 # BlackOut - Casino de Luxe
 
-![Status](https://img.shields.io/badge/status-in%20development-yellow)
-![Version](https://img.shields.io/badge/version-0.0.1-blue)
-![React](https://img.shields.io/badge/React-19-61DAFB)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178C6)
+![Status](https://img.shields.io/badge/status-active-brightgreen)
+![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white)
+![PWA](https://img.shields.io/badge/PWA-5A0FC8?logo=pwa&logoColor=white)
+![Vercel](https://img.shields.io/badge/deploy-Vercel-000?logo=vercel&logoColor=white)
 
 Collection de jeux à boire avec une UI **Casino de Luxe / High Roller** et des animations premium.
 
